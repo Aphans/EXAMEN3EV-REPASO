@@ -16,9 +16,9 @@ public class Cliente {
 		String linea;
 		linea = br.readLine();
 		while(linea!=null) {
-			String datos[]=linea.split(" ");
-			String producto = String.valueOf(datos[0]);
-			Integer cantidad = Integer.valueOf(datos[1]);
+			String datos[]=linea.split(" ");//Parte los datos en posiciones, una a la izquierda del espacio y otra a la derecha
+			String producto = String.valueOf(datos[0]); //Guarda los datos de la izquierda que es un String
+			Integer cantidad = Integer.valueOf(datos[1]);//Guarda los datos de la derecha que es un int
 			Integer cantidadTotal = null;
 			if(!productos.containsKey(producto)) {
 				Integer cantidadRepetida = Integer.valueOf(datos[1]);
@@ -61,6 +61,25 @@ public class Cliente {
 		}
 		productos.put(producto, cantidad);
 	}
+	public static void eliminarProducto(String producto,int cantidad) {
+		Integer cantidades = productos.get(producto);
+		if(!productos.containsKey(producto)) {
+			System.out.println("El producto no existe en su lista");
+		}
+		else if(cantidades < cantidad) {
+			System.out.println("No hay cantidad suficiente");
+		}
+		else if(cantidad>cantidad) {
+			Integer CantidadTotal = cantidades - cantidad;
+			productos.put(producto,CantidadTotal);
+		}
+		else if(productos.containsKey(producto)  && cantidades>cantidad) {
+			productos.remove(producto);
+		}
+		else{
+			productos.remove(producto);
+		}
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		boolean salir = false;
@@ -92,6 +111,22 @@ public class Cliente {
 				mostrar();
 				break;
 			case 4:
+				System.out.println("¿Desea eliminar un producto?S/N");
+				String eliminar = sc.next();
+				eliminar.toUpperCase();
+				if(eliminar.equals("S")){
+					System.out.println("Indique el producto a eliminar");
+					String productoEliminar = sc.next();
+					System.out.println("Indique la cantidad del producto a elimnar");
+					int cantidadEliminar = sc.nextInt();
+					eliminarProducto(productoEliminar,cantidadEliminar);
+				}
+				else {
+					if(eliminar.equals("N")) {
+						opcion = sc.nextInt();
+						return;
+					}
+				}
 				break;
 			case 5:
 				break;

@@ -7,4 +7,5 @@ Pan 1
 Pera 2
 Huevos 15
 Pera 3
-Huevos 2Rosca 2
+Huevos 2
+Plátano 3
