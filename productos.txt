@@ -1,0 +1,10 @@
+Manzana 5
+Leche 2
+Pera 3
+Naranja 5
+Manzana 5
+Pan 1
+Pera 2
+Huevos 15
+Pera 3
+Huevos 2

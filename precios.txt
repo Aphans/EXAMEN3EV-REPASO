@@ -1,0 +1,6 @@
+Manzana 0.54
+Leche 0.76
+Pera 0.98
+Naranja 1.05
+Pan 0.70
+Huevos 1.25
